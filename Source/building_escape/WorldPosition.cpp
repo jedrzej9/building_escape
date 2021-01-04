@@ -2,6 +2,7 @@
 
 
 #include "WorldPosition.h"
+#include "building_escapeGameModeBase.h"
 
 // Sets default values for this component's properties
 UWorldPosition::UWorldPosition()
@@ -18,9 +19,13 @@ UWorldPosition::UWorldPosition()
 void UWorldPosition::BeginPlay()
 {
 	Super::BeginPlay();
+
 	UE_LOG(LogTemp, Warning, TEXT("This is a warning!"));
 	// ...
-	
+	FString ObjectName = GetOwner()->GetName();
+	FString ObjectPosition = GetOwner()->GetActorLocation().ToString();
+
+	UE_LOG(LogTemp, Warning, TEXT("%s Position in world is: %s"), *ObjectName, *ObjectPosition);
 }
 
 
